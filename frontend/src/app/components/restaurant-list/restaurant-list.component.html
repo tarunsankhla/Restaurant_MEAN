@@ -1,0 +1,64 @@
+<p>restaurant-list works!</p>
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="title"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchTitle()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Tutorials List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let restaurant of restaurants; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveRestaurant(restaurant, i)"
+        >
+          {{ restaurant.title }}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="currentrestaurant()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentrestaurant.id">
+        <h4>Tutorial</h4>
+        <div>
+          <label><strong>Title:</strong></label> {{ currentrestaurant.name }}
+        </div>
+        <div>
+          <label><strong>Description:</strong></label>
+          {{ currentrestaurant.cuisine }}
+        </div>
+        <div>
+          <label><strong>Status:</strong></label>
+          {{ currentrestaurant.borouygh ? "Published" : "Pending" }}
+        </div>
+  
+        <a class="badge badge-warning" routerLink="/restaurant/{{ currentrestaurant.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentrestaurant">
+        <br />
+        <p>Please click on a Tutorial...</p>
+      </div>
+    </div>
+  </div>

@@ -25,13 +25,13 @@ module.exports = mongoose => {
         { timestamps: true }
       )
     );
-    schema.method("toJSON", function() {
-        const { __v, _id, ...object } = this.toObject();
-        object.id = _id;
-        return object;
-      });
+    // mongoose.Schema.method("toJSON", function() {
+    //     const { __v, _id, ...object } = this.toObject();
+    //     object.id = _id;
+    //     return object;
+    //   });
     
-      const Tutorial = mongoose.model("restaurant", schema);
+      // const Tutorial = mongoose.model("restaurant", mongoose.Schema);
   
     return Restaurant;
   };
