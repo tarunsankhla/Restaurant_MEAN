@@ -3,24 +3,24 @@ module.exports = mongoose => {
       "restaurant",
       mongoose.Schema(
         {
-          address: {
-              building: String,
-              coord: [{
-                lat : String,
-                lng : String
-                 }],
-              street : String,
-              zipcode: String
-          },
-          borouygh: String,
+          // address: {
+          //     building: String,
+          //     coord: [{
+          //       lat : String,
+          //       lng : String
+          //        }],
+          //     street : String,
+          //     zipcode: String
+          // },
+          // borouygh: String,
           cuisine: String,
-          grades : [{
-            date : String,
-            grade : String,
-            score: String
-          }],
+          // grades : [{
+          //   date : String,
+          //   grade : String,
+          //   score: String
+          // }],
           name: String,
-          restaurant_id: String,
+          // restaurant_id: String,
         },
         { timestamps: true }
       )
@@ -31,7 +31,7 @@ module.exports = mongoose => {
     //     return object;
     //   });
     
-      // const Tutorial = mongoose.model("restaurant", mongoose.Schema);
+    // const restaurant = mongoose.model("restaurant", Restaurant);
   
     return Restaurant;
   };

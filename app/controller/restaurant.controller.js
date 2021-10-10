@@ -1,21 +1,24 @@
 const db = require("../models");
 const Restaurant = db.restaurant;
 
+// var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.title) {
+    console.log(req.body.name , req.body.cuisine);
+
+    if (!req.body.name) {
       res.status(400).send({ message: "Content can not be empty!" });
       return;
     }
-  
+    console.log("create call !!")
     // Create a Restaurant
     const restaurant = new Restaurant({
-      title: req.body.title,
-      description: req.body.description,
-      published: req.body.published ? req.body.published : false
+      name: req.body.name,
+      cuisine: req.body.cuisine,
+      // published: req.body.published ? req.body.published : false
     });
-  
+    console.log("on crete"+restaurant);
     // Save Restaurant in the database
     restaurant
       .save(restaurant)
