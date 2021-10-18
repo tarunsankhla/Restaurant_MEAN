@@ -5,7 +5,7 @@ const Restaurant = db.restaurant;
 
 exports.create = (req, res) => {
     // Validate request
-    console.log(req.body.name , req.body.cuisine);
+    console.log("create",req,res);
 
     if (!req.body.name) {
       res.status(400).send({ message: "Content can not be empty!" });
@@ -33,6 +33,7 @@ exports.create = (req, res) => {
       });
     };
 exports.findAll = (req, res) => {
+  console.log("finall",req)
     const title = req.query.title;
     var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
   

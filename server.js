@@ -1,24 +1,27 @@
-const express = require("express");
+var express = require("express");
 const cors = require("cors");
-var bodyParser = require('body-parser');
+let bodyParser = require('body-parser');
 
 const app = express();
+var jsonParser = bodyParser.json()
 
 var corsOptions = {
 origin: "http://localhost:8081"
 };
-require("./app/routes/resturant.route")(app);
+
 app.use(cors(corsOptions));
 
 app.use(express.json());
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
-app.use(express.urlencoded({ extended: true }));
-
-app.use(bodyParser.urlencoded({ extended: false }))
-
+// app.use(express.urlencoded({ extended: true }));
+// express.urlencoded({ extended: false })
+// app.use(bodyParser.urlencoded({ extended: false }))
+// app.configure(function(){
+//     app.use(express.bodyParser());
+//   });
 // app.use(express.bodyParser());
-
+require("./app/routes/resturant.route")(app);
 app.get("/", (req, res) => {
 res.json({ message: "The restaurant app" });
 });
@@ -43,3 +46,19 @@ db.mongoose
     console.log("Cannot connect to the database!", err);
     process.exit();
 });
+
+
+// //// axios try
+// const axios = require('axios')
+
+// axios
+//   .post('http://localhost:8081/api/restaurants/', {
+//     todo: 'Buy the milk'
+//   })
+//   .then(res => {
+//     console.log(`statusCode: ${res.status}`)
+//     console.log(res)
+//   })
+//   .catch(error => {
+//     console.error(error)
+//   })

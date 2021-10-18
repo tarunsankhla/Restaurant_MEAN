@@ -21,8 +21,9 @@ module.exports = mongoose => {
           // }],
           name: String,
           // restaurant_id: String,
-        },
-        { timestamps: true }
+        // },
+        // { timestamps: true }
+        }
       )
     );
     // mongoose.Schema.method("toJSON", function() {
